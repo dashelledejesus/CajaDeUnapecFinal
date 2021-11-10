@@ -21,8 +21,8 @@
                         <p:outputLabel value="#{myBundle.CreateTipoDocumentoLabel_estadoDocumento}" for="estadoDocumento" />
                         <p:inputText id="estadoDocumento" value="#{tipoDocumentoController.selected.estadoDocumento}" title="#{myBundle.CreateTipoDocumentoTitle_estadoDocumento}" size="20" maxlength="20"/>
 
-                        <p:outputLabel value="#{myBundle.CreateTipoDocumentoLabel_idDocumentos}" for="idDocumentos" />
-                        <p:inputText id="idDocumentos" value="#{tipoDocumentoController.selected.idDocumentos}" title="#{myBundle.CreateTipoDocumentoTitle_idDocumentos}" required="true" requiredMessage="#{myBundle.CreateTipoDocumentoRequiredMessage_idDocumentos}"/>
+                        <p:outputLabel value="#{myBundle.CreateTipoDocumentoLabel_idDocumento}" for="idDocumento" />
+                        <p:inputText id="idDocumento" value="#{tipoDocumentoController.selected.idDocumento}" title="#{myBundle.CreateTipoDocumentoTitle_idDocumento}" required="true" requiredMessage="#{myBundle.CreateTipoDocumentoRequiredMessage_idDocumento}"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{tipoDocumentoController.saveNew}" value="#{myBundle.Save}" update="display,:TipoDocumentoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('TipoDocumentoCreateDialog'));">
                         <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmCreateMessage}" icon="ui-icon-alert"/>

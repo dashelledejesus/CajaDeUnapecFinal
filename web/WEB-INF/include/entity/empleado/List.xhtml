@@ -14,11 +14,13 @@
                 <p:menuitem value="#{myBundle.View}" onclick="document.getElementById('EmpleadoListForm:viewButton').click();" icon="ui-icon-search"/>
                 <p:menuitem value="#{myBundle.Edit}" onclick="document.getElementById('EmpleadoListForm:editButton').click();" icon="ui-icon-pencil"/>
                 <p:menuitem value="#{myBundle.Delete}" onclick="document.getElementById('EmpleadoListForm:deleteButton').click();" icon="ui-icon-trash"/>
+                <p:separator/>
+                <p:menuitem value="#{myBundle.EmpleadoMenuItem_facturaFinalCollection}" icon="ui-icon-search"  action="#{empleadoController.navigateFacturaFinalCollection}" disabled="#{empleadoController.isFacturaFinalCollectionEmpty}" ajax="false"/>  
             </p:contextMenu>
             <p:dataTable id="datalist"
                          value="#{empleadoController.items}"
                          lazy="false"
-                         rowKey="#{item.idCliente}"
+                         rowKey="#{item.idEmpleado}"
                          var="item"
                          paginator="true"
                          rows="10"
@@ -32,7 +34,7 @@
                 
                          value="HASH{empleadoController.lazyItems}"
                          lazy="true"
-                         rowKey="HASH{item.idCliente}"  <<< Remove this line
+                         rowKey="HASH{item.idEmpleado}"  <<< Remove this line
                 -->
 
 
@@ -40,14 +42,6 @@
                 <p:ajax event="rowUnselect" update="@form:createButton,@form:viewButton,@form:editButton,@form:deleteButton,@form:EmpleadoDataTableContextMenu"/>
                 <p:ajax event="contextMenu" update="@form:createButton @form:viewButton @form:editButton @form:deleteButton"/>
                 <p:ajax event="rowDblselect" onsuccess="document.getElementById('EmpleadoListForm:viewButton').click();"/>
-
-                <p:column sortBy="#{item.idCliente}" filterBy="#{item.idCliente}">
-                    <f:facet name="header">
-                        <h:outputText value="#{myBundle.ListEmpleadoTitle_idCliente}"/>
-                    </f:facet>
-                    <h:outputText value="#{item.idCliente}"/>
-                </p:column>
-
 
                 <p:column sortBy="#{item.nombreEmpleado}" filterBy="#{item.nombreEmpleado}">
                     <f:facet name="header">
@@ -88,6 +82,14 @@
                         <h:outputText value="#{myBundle.ListEmpleadoTitle_estadoEmpleado}"/>
                     </f:facet>
                     <h:outputText value="#{item.estadoEmpleado}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.idEmpleado}" filterBy="#{item.idEmpleado}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListEmpleadoTitle_idEmpleado}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.idEmpleado}"/>
                 </p:column>
 
 

@@ -1,6 +1,6 @@
 package converter;
 
-import CajaDeUnapec.FormaDePago;
+import cajaUnapec.FormaDePago;
 import facade.FormaDePagoFacade;
 import controller.util.JsfUtil;
 import java.util.logging.Level;

@@ -1,6 +1,6 @@
 package converter;
 
-import CajaDeUnapec.TipoDocumento;
+import cajaUnapec.TipoDocumento;
 import facade.TipoDocumentoFacade;
 import controller.util.JsfUtil;
 import java.util.logging.Level;
@@ -44,7 +44,7 @@ public class TipoDocumentoConverter implements Converter {
         }
         if (object instanceof TipoDocumento) {
             TipoDocumento o = (TipoDocumento) object;
-            return getStringKey(o.getIdDocumentos());
+            return getStringKey(o.getIdDocumento());
         } else {
             Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), TipoDocumento.class.getName()});
             return null;

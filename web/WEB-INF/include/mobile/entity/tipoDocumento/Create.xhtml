@@ -32,8 +32,8 @@
                         </pm:field>
 
                         <pm:field>
-                            <p:outputLabel value="#{myBundle.CreateTipoDocumentoLabel_idDocumentos}" for="idDocumentos" />
-                            <p:inputText id="idDocumentos" value="#{tipoDocumentoController.selected.idDocumentos}" title="#{myBundle.CreateTipoDocumentoTitle_idDocumentos}" required="true" requiredMessage="#{myBundle.CreateTipoDocumentoRequiredMessage_idDocumentos}"/>
+                            <p:outputLabel value="#{myBundle.CreateTipoDocumentoLabel_idDocumento}" for="idDocumento" />
+                            <p:inputText id="idDocumento" value="#{tipoDocumentoController.selected.idDocumento}" title="#{myBundle.CreateTipoDocumentoTitle_idDocumento}" required="true" requiredMessage="#{myBundle.CreateTipoDocumentoRequiredMessage_idDocumento}"/>
                         </pm:field>
                     </p:outputPanel>
                     <p:commandButton actionListener="#{tipoDocumentoController.saveNew}" value="#{myBundle.Save}" update="display,:TipoDocumentoListPage:TipoDocumentoListForm:datalist,:growl" action="#{mobilePageController.navigateWithHistory('pm:TipoDocumentoListPage')}"/>

@@ -1,6 +1,6 @@
 package converter;
 
-import CajaDeUnapec.Cliente;
+import cajaUnapec.Cliente;
 import facade.ClienteFacade;
 import controller.util.JsfUtil;
 import java.util.logging.Level;

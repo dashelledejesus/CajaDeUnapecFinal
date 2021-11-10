@@ -5,10 +5,16 @@
  */
 package facade;
 
-import CajaDeUnapec.Empleado;
+import cajaUnapec.Empleado;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import cajaUnapec.Empleado_;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import cajaUnapec.FacturaFinal;
+import java.util.Collection;
 
 /**
  *
@@ -27,6 +33,21 @@ public class EmpleadoFacade extends AbstractFacade<Empleado> {
 
     public EmpleadoFacade() {
         super(Empleado.class);
+    }
+
+    public boolean isFacturaFinalCollectionEmpty(Empleado entity) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Long> cq = cb.createQuery(Long.class);
+        Root<Empleado> empleado = cq.from(Empleado.class);
+        cq.select(cb.literal(1L)).distinct(true).where(cb.equal(empleado, entity), cb.isNotEmpty(empleado.get(Empleado_.facturaFinalCollection)));
+        return em.createQuery(cq).getResultList().isEmpty();
+    }
+
+    public Collection<FacturaFinal> findFacturaFinalCollection(Empleado entity) {
+        Empleado mergedEntity = this.getMergedEntity(entity);
+        Collection<FacturaFinal> facturaFinalCollection = mergedEntity.getFacturaFinalCollection();
+        facturaFinalCollection.size();
+        return facturaFinalCollection;
     }
     
 }

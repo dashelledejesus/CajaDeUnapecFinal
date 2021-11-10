@@ -22,11 +22,6 @@
                     <p:outputPanel rendered="#{empleadoController.selected != null}">
 
                         <pm:field>
-                            <h:outputLabel value="#{myBundle.EditEmpleadoLabel_idCliente}" for="idCliente" />
-                            <h:outputText id="idCliente" value="#{empleadoController.selected.idCliente}" />
-                        </pm:field>
-
-                        <pm:field>
                             <p:outputLabel value="#{myBundle.EditEmpleadoLabel_nombreEmpleado}" for="nombreEmpleado" />
                             <p:inputText id="nombreEmpleado" value="#{empleadoController.selected.nombreEmpleado}" title="#{myBundle.EditEmpleadoTitle_nombreEmpleado}" size="40" maxlength="40"/>
                         </pm:field>
@@ -49,6 +44,11 @@
                         <pm:field>
                             <p:outputLabel value="#{myBundle.EditEmpleadoLabel_estadoEmpleado}" for="estadoEmpleado" />
                             <p:inputText id="estadoEmpleado" value="#{empleadoController.selected.estadoEmpleado}" title="#{myBundle.EditEmpleadoTitle_estadoEmpleado}" size="20" maxlength="20"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputLabel value="#{myBundle.EditEmpleadoLabel_idEmpleado}" for="idEmpleado" />
+                            <h:outputText id="idEmpleado" value="#{empleadoController.selected.idEmpleado}" />
                         </pm:field>
                     </p:outputPanel>
                     <p:commandButton actionListener="#{empleadoController.save}" value="#{myBundle.Save}" update="#{mobilePageController.updatableWidgets(component,'display,:EmpleadoListPage:EmpleadoListForm:datalist,:growl')}" action="#{mobilePageController.navigateWithHistory('pm:EmpleadoListPage')}"/>

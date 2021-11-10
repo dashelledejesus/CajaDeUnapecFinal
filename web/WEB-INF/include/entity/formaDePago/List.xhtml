@@ -14,6 +14,8 @@
                 <p:menuitem value="#{myBundle.View}" onclick="document.getElementById('FormaDePagoListForm:viewButton').click();" icon="ui-icon-search"/>
                 <p:menuitem value="#{myBundle.Edit}" onclick="document.getElementById('FormaDePagoListForm:editButton').click();" icon="ui-icon-pencil"/>
                 <p:menuitem value="#{myBundle.Delete}" onclick="document.getElementById('FormaDePagoListForm:deleteButton').click();" icon="ui-icon-trash"/>
+                <p:separator/>
+                <p:menuitem value="#{myBundle.FormaDePagoMenuItem_facturaFinalCollection}" icon="ui-icon-search"  action="#{formaDePagoController.navigateFacturaFinalCollection}" disabled="#{formaDePagoController.isFacturaFinalCollectionEmpty}" ajax="false"/>  
             </p:contextMenu>
             <p:dataTable id="datalist"
                          value="#{formaDePagoController.items}"

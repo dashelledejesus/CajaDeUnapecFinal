@@ -14,6 +14,8 @@
                 <p:menuitem value="#{myBundle.View}" onclick="document.getElementById('ServFacturableListForm:viewButton').click();" icon="ui-icon-search"/>
                 <p:menuitem value="#{myBundle.Edit}" onclick="document.getElementById('ServFacturableListForm:editButton').click();" icon="ui-icon-pencil"/>
                 <p:menuitem value="#{myBundle.Delete}" onclick="document.getElementById('ServFacturableListForm:deleteButton').click();" icon="ui-icon-trash"/>
+                <p:separator/>
+                <p:menuitem value="#{myBundle.ServFacturableMenuItem_facturaFinalCollection}" icon="ui-icon-search"  action="#{servFacturableController.navigateFacturaFinalCollection}" disabled="#{servFacturableController.isFacturaFinalCollectionEmpty}" ajax="false"/>  
             </p:contextMenu>
             <p:dataTable id="datalist"
                          value="#{servFacturableController.items}"

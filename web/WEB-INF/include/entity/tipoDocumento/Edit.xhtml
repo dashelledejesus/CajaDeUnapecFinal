@@ -21,8 +21,8 @@
                         <p:inputText id="estadoDocumento" value="#{tipoDocumentoController.selected.estadoDocumento}" title="#{myBundle.EditTipoDocumentoTitle_estadoDocumento}" size="20" maxlength="20"/>
 
 
-                        <h:outputLabel value="#{myBundle.EditTipoDocumentoLabel_idDocumentos}" for="idDocumentos" />
-                        <h:outputText id="idDocumentos" value="#{tipoDocumentoController.selected.idDocumentos}" />
+                        <h:outputLabel value="#{myBundle.EditTipoDocumentoLabel_idDocumento}" for="idDocumento" />
+                        <h:outputText id="idDocumento" value="#{tipoDocumentoController.selected.idDocumento}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{tipoDocumentoController.save}" value="#{myBundle.Save}" update="display,:TipoDocumentoListForm:datalist,:TipoDocumentoListForm:TipoDocumentoDataTableContextMenu,:growl" oncomplete="handleSubmit(xhr,status,args,PF('TipoDocumentoEditDialog'));">
                         <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmEditMessage}" icon="ui-icon-alert"/>

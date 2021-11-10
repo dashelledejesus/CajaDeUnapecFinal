@@ -39,11 +39,6 @@
 
 
 
-                            <h:outputText value="#{item.idCliente}"/>
-
-
-
-                            ,&nbsp;
                             <h:outputText value="#{item.nombreEmpleado}"/>
 
 
@@ -67,6 +62,12 @@
 
                             ,&nbsp;
                             <h:outputText value="#{item.estadoEmpleado}"/>
+
+
+
+                            ,&nbsp;
+                            <h:outputText value="#{item.idEmpleado}"/>
+
 
                         </p>
                         <f:setPropertyActionListener value="#{item}" target="#{empleadoController.selected}" />

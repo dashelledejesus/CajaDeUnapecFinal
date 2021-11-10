@@ -1,6 +1,6 @@
 package converter;
 
-import CajaDeUnapec.ServFacturable;
+import cajaUnapec.ServFacturable;
 import facade.ServFacturableFacade;
 import controller.util.JsfUtil;
 import java.util.logging.Level;

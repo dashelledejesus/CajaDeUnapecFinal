@@ -5,10 +5,16 @@
  */
 package facade;
 
-import CajaDeUnapec.ModPago;
+import cajaUnapec.ModPago;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import cajaUnapec.ModPago_;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import cajaUnapec.FacturaFinal;
+import java.util.Collection;
 
 /**
  *
@@ -27,6 +33,21 @@ public class ModPagoFacade extends AbstractFacade<ModPago> {
 
     public ModPagoFacade() {
         super(ModPago.class);
+    }
+
+    public boolean isFacturaFinalCollectionEmpty(ModPago entity) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Long> cq = cb.createQuery(Long.class);
+        Root<ModPago> modPago = cq.from(ModPago.class);
+        cq.select(cb.literal(1L)).distinct(true).where(cb.equal(modPago, entity), cb.isNotEmpty(modPago.get(ModPago_.facturaFinalCollection)));
+        return em.createQuery(cq).getResultList().isEmpty();
+    }
+
+    public Collection<FacturaFinal> findFacturaFinalCollection(ModPago entity) {
+        ModPago mergedEntity = this.getMergedEntity(entity);
+        Collection<FacturaFinal> facturaFinalCollection = mergedEntity.getFacturaFinalCollection();
+        facturaFinalCollection.size();
+        return facturaFinalCollection;
     }
     
 }

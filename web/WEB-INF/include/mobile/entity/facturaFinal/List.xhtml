@@ -44,32 +44,32 @@
 
 
                             ,&nbsp;
-                            <h:outputText value="#{item.idFormaDePago}"/>
+                            <h:outputText value="#{item.idCliente.idCliente}"/>
 
 
 
                             ,&nbsp;
-                            <h:outputText value="#{item.idDocumento}"/>
+                            <h:outputText value="#{item.idEmpleado.idEmpleado}"/>
 
 
 
                             ,&nbsp;
-                            <h:outputText value="#{item.idServFacturable}"/>
+                            <h:outputText value="#{item.idFormaDePago.descripcionFormaDePago}"/>
 
 
 
                             ,&nbsp;
-                            <h:outputText value="#{item.idModPago}"/>
+                            <h:outputText value="#{item.idModPago.idModPago}"/>
 
 
 
                             ,&nbsp;
-                            <h:outputText value="#{item.idCliente}"/>
+                            <h:outputText value="#{item.idServFacturable.descripcionServFacturable}"/>
 
 
                             <ui:remove>
                                 ,&nbsp;
-                                <h:outputText value="#{item.idEmpleado}"/>
+                                <h:outputText value="#{item.idDocumento.descripcionDocumento}"/>
                             </ui:remove>
                         </p>
                         <f:setPropertyActionListener value="#{item}" target="#{facturaFinalController.selected}" />

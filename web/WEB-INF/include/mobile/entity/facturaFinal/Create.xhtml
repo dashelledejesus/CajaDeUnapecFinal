@@ -27,33 +27,81 @@
                         </pm:field>
 
                         <pm:field>
-                            <p:outputLabel value="#{myBundle.CreateFacturaFinalLabel_idFormaDePago}" for="idFormaDePago" />
-                            <p:inputText id="idFormaDePago" value="#{facturaFinalController.selected.idFormaDePago}" title="#{myBundle.CreateFacturaFinalTitle_idFormaDePago}"/>
-                        </pm:field>
-
-                        <pm:field>
-                            <p:outputLabel value="#{myBundle.CreateFacturaFinalLabel_idDocumento}" for="idDocumento" />
-                            <p:inputText id="idDocumento" value="#{facturaFinalController.selected.idDocumento}" title="#{myBundle.CreateFacturaFinalTitle_idDocumento}"/>
-                        </pm:field>
-
-                        <pm:field>
-                            <p:outputLabel value="#{myBundle.CreateFacturaFinalLabel_idServFacturable}" for="idServFacturable" />
-                            <p:inputText id="idServFacturable" value="#{facturaFinalController.selected.idServFacturable}" title="#{myBundle.CreateFacturaFinalTitle_idServFacturable}"/>
-                        </pm:field>
-
-                        <pm:field>
-                            <p:outputLabel value="#{myBundle.CreateFacturaFinalLabel_idModPago}" for="idModPago" />
-                            <p:inputText id="idModPago" value="#{facturaFinalController.selected.idModPago}" title="#{myBundle.CreateFacturaFinalTitle_idModPago}"/>
-                        </pm:field>
-
-                        <pm:field>
                             <p:outputLabel value="#{myBundle.CreateFacturaFinalLabel_idCliente}" for="idCliente" />
-                            <p:inputText id="idCliente" value="#{facturaFinalController.selected.idCliente}" title="#{myBundle.CreateFacturaFinalTitle_idCliente}"/>
+                            <p:selectOneMenu id="idCliente" value="#{facturaFinalController.selected.idCliente}"  converter="clienteConverter">
+                                <f:selectItem itemLabel="#{myBundle.SelectOneMessage}"/>
+                                <f:selectItems value="#{clienteController.items}"
+                                               var="idClienteItem"
+                                               itemValue="#{idClienteItem}"
+                                               itemLabel="#{idClienteItem.idCliente.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
                         </pm:field>
 
                         <pm:field>
                             <p:outputLabel value="#{myBundle.CreateFacturaFinalLabel_idEmpleado}" for="idEmpleado" />
-                            <p:inputText id="idEmpleado" value="#{facturaFinalController.selected.idEmpleado}" title="#{myBundle.CreateFacturaFinalTitle_idEmpleado}"/>
+                            <p:selectOneMenu id="idEmpleado" value="#{facturaFinalController.selected.idEmpleado}"  converter="empleadoConverter">
+                                <f:selectItem itemLabel="#{myBundle.SelectOneMessage}"/>
+                                <f:selectItems value="#{empleadoController.items}"
+                                               var="idEmpleadoItem"
+                                               itemValue="#{idEmpleadoItem}"
+                                               itemLabel="#{idEmpleadoItem.idEmpleado.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                        </pm:field>
+
+                        <pm:field>
+                            <p:outputLabel value="#{myBundle.CreateFacturaFinalLabel_idFormaDePago}" for="idFormaDePago" />
+                            <p:selectOneMenu id="idFormaDePago" value="#{facturaFinalController.selected.idFormaDePago}"  converter="formaDePagoConverter">
+                                <f:selectItem itemLabel="#{myBundle.SelectOneMessage}"/>
+                                <f:selectItems value="#{formaDePagoController.items}"
+                                               var="idFormaDePagoItem"
+                                               itemValue="#{idFormaDePagoItem}"
+                                               itemLabel="#{idFormaDePagoItem.descripcionFormaDePago.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                        </pm:field>
+
+                        <pm:field>
+                            <p:outputLabel value="#{myBundle.CreateFacturaFinalLabel_idModPago}" for="idModPago" />
+                            <p:selectOneMenu id="idModPago" value="#{facturaFinalController.selected.idModPago}"  converter="modPagoConverter">
+                                <f:selectItem itemLabel="#{myBundle.SelectOneMessage}"/>
+                                <f:selectItems value="#{modPagoController.items}"
+                                               var="idModPagoItem"
+                                               itemValue="#{idModPagoItem}"
+                                               itemLabel="#{idModPagoItem.idModPago.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                        </pm:field>
+
+                        <pm:field>
+                            <p:outputLabel value="#{myBundle.CreateFacturaFinalLabel_idServFacturable}" for="idServFacturable" />
+                            <p:selectOneMenu id="idServFacturable" value="#{facturaFinalController.selected.idServFacturable}"  converter="servFacturableConverter">
+                                <f:selectItem itemLabel="#{myBundle.SelectOneMessage}"/>
+                                <f:selectItems value="#{servFacturableController.items}"
+                                               var="idServFacturableItem"
+                                               itemValue="#{idServFacturableItem}"
+                                               itemLabel="#{idServFacturableItem.descripcionServFacturable.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                        </pm:field>
+
+                        <pm:field>
+                            <p:outputLabel value="#{myBundle.CreateFacturaFinalLabel_idDocumento}" for="idDocumento" />
+                            <p:selectOneMenu id="idDocumento" value="#{facturaFinalController.selected.idDocumento}"  converter="tipoDocumentoConverter">
+                                <f:selectItem itemLabel="#{myBundle.SelectOneMessage}"/>
+                                <f:selectItems value="#{tipoDocumentoController.items}"
+                                               var="idDocumentoItem"
+                                               itemValue="#{idDocumentoItem}"
+                                               itemLabel="#{idDocumentoItem.descripcionDocumento.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
                         </pm:field>
                     </p:outputPanel>
                     <p:commandButton actionListener="#{facturaFinalController.saveNew}" value="#{myBundle.Save}" update="display,:FacturaFinalListPage:FacturaFinalListForm:datalist,:growl" action="#{mobilePageController.navigateWithHistory('pm:FacturaFinalListPage')}"/>

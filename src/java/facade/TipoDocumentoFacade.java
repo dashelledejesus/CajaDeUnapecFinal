@@ -5,10 +5,16 @@
  */
 package facade;
 
-import CajaDeUnapec.TipoDocumento;
+import cajaUnapec.TipoDocumento;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import cajaUnapec.TipoDocumento_;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import cajaUnapec.FacturaFinal;
+import java.util.Collection;
 
 /**
  *
@@ -27,6 +33,21 @@ public class TipoDocumentoFacade extends AbstractFacade<TipoDocumento> {
 
     public TipoDocumentoFacade() {
         super(TipoDocumento.class);
+    }
+
+    public boolean isFacturaFinalCollectionEmpty(TipoDocumento entity) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Long> cq = cb.createQuery(Long.class);
+        Root<TipoDocumento> tipoDocumento = cq.from(TipoDocumento.class);
+        cq.select(cb.literal(1L)).distinct(true).where(cb.equal(tipoDocumento, entity), cb.isNotEmpty(tipoDocumento.get(TipoDocumento_.facturaFinalCollection)));
+        return em.createQuery(cq).getResultList().isEmpty();
+    }
+
+    public Collection<FacturaFinal> findFacturaFinalCollection(TipoDocumento entity) {
+        TipoDocumento mergedEntity = this.getMergedEntity(entity);
+        Collection<FacturaFinal> facturaFinalCollection = mergedEntity.getFacturaFinalCollection();
+        facturaFinalCollection.size();
+        return facturaFinalCollection;
     }
     
 }

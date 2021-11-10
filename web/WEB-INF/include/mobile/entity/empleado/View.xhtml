@@ -22,11 +22,6 @@
                     <p:outputPanel rendered="#{empleadoController.selected != null}">
 
                         <pm:field>
-                            <h:outputText value="#{myBundle.ViewEmpleadoLabel_idCliente}"/>
-                            <h:outputText value="#{empleadoController.selected.idCliente}" title="#{myBundle.ViewEmpleadoTitle_idCliente}"/>
-                        </pm:field>
-
-                        <pm:field>
                             <h:outputText value="#{myBundle.ViewEmpleadoLabel_nombreEmpleado}"/>
                             <h:outputText value="#{empleadoController.selected.nombreEmpleado}" title="#{myBundle.ViewEmpleadoTitle_nombreEmpleado}"/>
                         </pm:field>
@@ -51,6 +46,11 @@
                         <pm:field>
                             <h:outputText value="#{myBundle.ViewEmpleadoLabel_estadoEmpleado}"/>
                             <h:outputText value="#{empleadoController.selected.estadoEmpleado}" title="#{myBundle.ViewEmpleadoTitle_estadoEmpleado}"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputText value="#{myBundle.ViewEmpleadoLabel_idEmpleado}"/>
+                            <h:outputText value="#{empleadoController.selected.idEmpleado}" title="#{myBundle.ViewEmpleadoTitle_idEmpleado}"/>
                         </pm:field>
                     </p:outputPanel>
                 </h:panelGroup>

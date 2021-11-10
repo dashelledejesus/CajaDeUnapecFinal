@@ -14,10 +14,6 @@
                 <h:panelGroup id="display">
                     <p:panelGrid  columns="2" columnClasses="column" rendered="#{empleadoController.selected != null}">
 
-
-                        <h:outputLabel value="#{myBundle.EditEmpleadoLabel_idCliente}" for="idCliente" />
-                        <h:outputText id="idCliente" value="#{empleadoController.selected.idCliente}" />
-
                         <p:outputLabel value="#{myBundle.EditEmpleadoLabel_nombreEmpleado}" for="nombreEmpleado" />
                         <p:inputText id="nombreEmpleado" value="#{empleadoController.selected.nombreEmpleado}" title="#{myBundle.EditEmpleadoTitle_nombreEmpleado}" size="40" maxlength="40"/>
 
@@ -32,6 +28,10 @@
 
                         <p:outputLabel value="#{myBundle.EditEmpleadoLabel_estadoEmpleado}" for="estadoEmpleado" />
                         <p:inputText id="estadoEmpleado" value="#{empleadoController.selected.estadoEmpleado}" title="#{myBundle.EditEmpleadoTitle_estadoEmpleado}" size="20" maxlength="20"/>
+
+
+                        <h:outputLabel value="#{myBundle.EditEmpleadoLabel_idEmpleado}" for="idEmpleado" />
+                        <h:outputText id="idEmpleado" value="#{empleadoController.selected.idEmpleado}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{empleadoController.save}" value="#{myBundle.Save}" update="display,:EmpleadoListForm:datalist,:EmpleadoListForm:EmpleadoDataTableContextMenu,:growl" oncomplete="handleSubmit(xhr,status,args,PF('EmpleadoEditDialog'));">
                         <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmEditMessage}" icon="ui-icon-alert"/>

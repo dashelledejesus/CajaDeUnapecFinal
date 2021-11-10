@@ -3,19 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CajaDeUnapec;
+package cajaUnapec;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -28,7 +31,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "TipoDocumento.findAll", query = "SELECT t FROM TipoDocumento t")
     , @NamedQuery(name = "TipoDocumento.findByDescripcionDocumento", query = "SELECT t FROM TipoDocumento t WHERE t.descripcionDocumento = :descripcionDocumento")
     , @NamedQuery(name = "TipoDocumento.findByEstadoDocumento", query = "SELECT t FROM TipoDocumento t WHERE t.estadoDocumento = :estadoDocumento")
-    , @NamedQuery(name = "TipoDocumento.findByIdDocumentos", query = "SELECT t FROM TipoDocumento t WHERE t.idDocumentos = :idDocumentos")})
+    , @NamedQuery(name = "TipoDocumento.findByIdDocumento", query = "SELECT t FROM TipoDocumento t WHERE t.idDocumento = :idDocumento")})
 public class TipoDocumento implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -41,14 +44,16 @@ public class TipoDocumento implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "ID_DOCUMENTOS")
-    private Integer idDocumentos;
+    @Column(name = "ID_DOCUMENTO")
+    private Integer idDocumento;
+    @OneToMany(mappedBy = "idDocumento")
+    private Collection<FacturaFinal> facturaFinalCollection;
 
     public TipoDocumento() {
     }
 
-    public TipoDocumento(Integer idDocumentos) {
-        this.idDocumentos = idDocumentos;
+    public TipoDocumento(Integer idDocumento) {
+        this.idDocumento = idDocumento;
     }
 
     public String getDescripcionDocumento() {
@@ -67,18 +72,27 @@ public class TipoDocumento implements Serializable {
         this.estadoDocumento = estadoDocumento;
     }
 
-    public Integer getIdDocumentos() {
-        return idDocumentos;
+    public Integer getIdDocumento() {
+        return idDocumento;
     }
 
-    public void setIdDocumentos(Integer idDocumentos) {
-        this.idDocumentos = idDocumentos;
+    public void setIdDocumento(Integer idDocumento) {
+        this.idDocumento = idDocumento;
+    }
+
+    @XmlTransient
+    public Collection<FacturaFinal> getFacturaFinalCollection() {
+        return facturaFinalCollection;
+    }
+
+    public void setFacturaFinalCollection(Collection<FacturaFinal> facturaFinalCollection) {
+        this.facturaFinalCollection = facturaFinalCollection;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idDocumentos != null ? idDocumentos.hashCode() : 0);
+        hash += (idDocumento != null ? idDocumento.hashCode() : 0);
         return hash;
     }
 
@@ -89,7 +103,7 @@ public class TipoDocumento implements Serializable {
             return false;
         }
         TipoDocumento other = (TipoDocumento) object;
-        if ((this.idDocumentos == null && other.idDocumentos != null) || (this.idDocumentos != null && !this.idDocumentos.equals(other.idDocumentos))) {
+        if ((this.idDocumento == null && other.idDocumento != null) || (this.idDocumento != null && !this.idDocumento.equals(other.idDocumento))) {
             return false;
         }
         return true;
@@ -97,7 +111,7 @@ public class TipoDocumento implements Serializable {
 
     @Override
     public String toString() {
-        return "CajaDeUnapec.TipoDocumento[ idDocumentos=" + idDocumentos + " ]";
+        return "cajaUnapec.TipoDocumento[ idDocumento=" + idDocumento + " ]";
     }
     
 }

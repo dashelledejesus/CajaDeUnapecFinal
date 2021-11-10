@@ -15,9 +15,6 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" columnClasses="column" rendered="#{empleadoController.selected != null}">
 
-                        <h:outputText value="#{myBundle.ViewEmpleadoLabel_idCliente}"/>
-                        <h:outputText value="#{empleadoController.selected.idCliente}" title="#{myBundle.ViewEmpleadoTitle_idCliente}"/>
-
                         <h:outputText value="#{myBundle.ViewEmpleadoLabel_nombreEmpleado}"/>
                         <h:outputText value="#{empleadoController.selected.nombreEmpleado}" title="#{myBundle.ViewEmpleadoTitle_nombreEmpleado}"/>
 
@@ -34,6 +31,9 @@
 
                         <h:outputText value="#{myBundle.ViewEmpleadoLabel_estadoEmpleado}"/>
                         <h:outputText value="#{empleadoController.selected.estadoEmpleado}" title="#{myBundle.ViewEmpleadoTitle_estadoEmpleado}"/>
+
+                        <h:outputText value="#{myBundle.ViewEmpleadoLabel_idEmpleado}"/>
+                        <h:outputText value="#{empleadoController.selected.idEmpleado}" title="#{myBundle.ViewEmpleadoTitle_idEmpleado}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{myBundle.Close}" onclick="PF('EmpleadoViewDialog').hide()"/>
                 </h:panelGroup>

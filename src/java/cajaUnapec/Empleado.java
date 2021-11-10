@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CajaDeUnapec;
+package cajaUnapec;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -13,12 +14,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -29,20 +32,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Empleado.findAll", query = "SELECT e FROM Empleado e")
-    , @NamedQuery(name = "Empleado.findByIdCliente", query = "SELECT e FROM Empleado e WHERE e.idCliente = :idCliente")
     , @NamedQuery(name = "Empleado.findByNombreEmpleado", query = "SELECT e FROM Empleado e WHERE e.nombreEmpleado = :nombreEmpleado")
     , @NamedQuery(name = "Empleado.findByCedulaEmpleado", query = "SELECT e FROM Empleado e WHERE e.cedulaEmpleado = :cedulaEmpleado")
     , @NamedQuery(name = "Empleado.findByTandaEmpleado", query = "SELECT e FROM Empleado e WHERE e.tandaEmpleado = :tandaEmpleado")
     , @NamedQuery(name = "Empleado.findByFechaIngresoEmpleado", query = "SELECT e FROM Empleado e WHERE e.fechaIngresoEmpleado = :fechaIngresoEmpleado")
-    , @NamedQuery(name = "Empleado.findByEstadoEmpleado", query = "SELECT e FROM Empleado e WHERE e.estadoEmpleado = :estadoEmpleado")})
+    , @NamedQuery(name = "Empleado.findByEstadoEmpleado", query = "SELECT e FROM Empleado e WHERE e.estadoEmpleado = :estadoEmpleado")
+    , @NamedQuery(name = "Empleado.findByIdEmpleado", query = "SELECT e FROM Empleado e WHERE e.idEmpleado = :idEmpleado")})
 public class Empleado implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "ID_CLIENTE")
-    private Integer idCliente;
     @Size(max = 40)
     @Column(name = "NOMBRE_EMPLEADO")
     private String nombreEmpleado;
@@ -57,20 +55,19 @@ public class Empleado implements Serializable {
     @Size(max = 20)
     @Column(name = "ESTADO_EMPLEADO")
     private String estadoEmpleado;
+    @Id
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "ID_EMPLEADO")
+    private Integer idEmpleado;
+    @OneToMany(mappedBy = "idEmpleado")
+    private Collection<FacturaFinal> facturaFinalCollection;
 
     public Empleado() {
     }
 
-    public Empleado(Integer idCliente) {
-        this.idCliente = idCliente;
-    }
-
-    public Integer getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(Integer idCliente) {
-        this.idCliente = idCliente;
+    public Empleado(Integer idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     public String getNombreEmpleado() {
@@ -113,10 +110,27 @@ public class Empleado implements Serializable {
         this.estadoEmpleado = estadoEmpleado;
     }
 
+    public Integer getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(Integer idEmpleado) {
+        this.idEmpleado = idEmpleado;
+    }
+
+    @XmlTransient
+    public Collection<FacturaFinal> getFacturaFinalCollection() {
+        return facturaFinalCollection;
+    }
+
+    public void setFacturaFinalCollection(Collection<FacturaFinal> facturaFinalCollection) {
+        this.facturaFinalCollection = facturaFinalCollection;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idCliente != null ? idCliente.hashCode() : 0);
+        hash += (idEmpleado != null ? idEmpleado.hashCode() : 0);
         return hash;
     }
 
@@ -127,7 +141,7 @@ public class Empleado implements Serializable {
             return false;
         }
         Empleado other = (Empleado) object;
-        if ((this.idCliente == null && other.idCliente != null) || (this.idCliente != null && !this.idCliente.equals(other.idCliente))) {
+        if ((this.idEmpleado == null && other.idEmpleado != null) || (this.idEmpleado != null && !this.idEmpleado.equals(other.idEmpleado))) {
             return false;
         }
         return true;
@@ -135,7 +149,7 @@ public class Empleado implements Serializable {
 
     @Override
     public String toString() {
-        return "CajaDeUnapec.Empleado[ idCliente=" + idCliente + " ]";
+        return "cajaUnapec.Empleado[ idEmpleado=" + idEmpleado + " ]";
     }
     
 }

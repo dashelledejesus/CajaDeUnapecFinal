@@ -3,19 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CajaDeUnapec;
+package cajaUnapec;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -43,6 +46,8 @@ public class ModPago implements Serializable {
     @Size(max = 20)
     @Column(name = "ESTADOS_MOD_PAGO")
     private String estadosModPago;
+    @OneToMany(mappedBy = "idModPago")
+    private Collection<FacturaFinal> facturaFinalCollection;
 
     public ModPago() {
     }
@@ -75,6 +80,15 @@ public class ModPago implements Serializable {
         this.estadosModPago = estadosModPago;
     }
 
+    @XmlTransient
+    public Collection<FacturaFinal> getFacturaFinalCollection() {
+        return facturaFinalCollection;
+    }
+
+    public void setFacturaFinalCollection(Collection<FacturaFinal> facturaFinalCollection) {
+        this.facturaFinalCollection = facturaFinalCollection;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -97,7 +111,7 @@ public class ModPago implements Serializable {
 
     @Override
     public String toString() {
-        return "CajaDeUnapec.ModPago[ idModPago=" + idModPago + " ]";
+        return "cajaUnapec.ModPago[ idModPago=" + idModPago + " ]";
     }
     
 }

@@ -14,11 +14,13 @@
                 <p:menuitem value="#{myBundle.View}" onclick="document.getElementById('TipoDocumentoListForm:viewButton').click();" icon="ui-icon-search"/>
                 <p:menuitem value="#{myBundle.Edit}" onclick="document.getElementById('TipoDocumentoListForm:editButton').click();" icon="ui-icon-pencil"/>
                 <p:menuitem value="#{myBundle.Delete}" onclick="document.getElementById('TipoDocumentoListForm:deleteButton').click();" icon="ui-icon-trash"/>
+                <p:separator/>
+                <p:menuitem value="#{myBundle.TipoDocumentoMenuItem_facturaFinalCollection}" icon="ui-icon-search"  action="#{tipoDocumentoController.navigateFacturaFinalCollection}" disabled="#{tipoDocumentoController.isFacturaFinalCollectionEmpty}" ajax="false"/>  
             </p:contextMenu>
             <p:dataTable id="datalist"
                          value="#{tipoDocumentoController.items}"
                          lazy="false"
-                         rowKey="#{item.idDocumentos}"
+                         rowKey="#{item.idDocumento}"
                          var="item"
                          paginator="true"
                          rows="10"
@@ -32,7 +34,7 @@
                 
                          value="HASH{tipoDocumentoController.lazyItems}"
                          lazy="true"
-                         rowKey="HASH{item.idDocumentos}"  <<< Remove this line
+                         rowKey="HASH{item.idDocumento}"  <<< Remove this line
                 -->
 
 
@@ -57,11 +59,11 @@
                 </p:column>
 
 
-                <p:column sortBy="#{item.idDocumentos}" filterBy="#{item.idDocumentos}">
+                <p:column sortBy="#{item.idDocumento}" filterBy="#{item.idDocumento}">
                     <f:facet name="header">
-                        <h:outputText value="#{myBundle.ListTipoDocumentoTitle_idDocumentos}"/>
+                        <h:outputText value="#{myBundle.ListTipoDocumentoTitle_idDocumento}"/>
                     </f:facet>
-                    <h:outputText value="#{item.idDocumentos}"/>
+                    <h:outputText value="#{item.idDocumento}"/>
                 </p:column>
 
 

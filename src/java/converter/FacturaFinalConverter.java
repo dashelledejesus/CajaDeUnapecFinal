@@ -1,6 +1,6 @@
 package converter;
 
-import CajaDeUnapec.FacturaFinal;
+import cajaUnapec.FacturaFinal;
 import facade.FacturaFinalFacade;
 import controller.util.JsfUtil;
 import java.util.logging.Level;

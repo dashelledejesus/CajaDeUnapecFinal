@@ -32,8 +32,8 @@
                         </pm:field>
 
                         <pm:field>
-                            <h:outputLabel value="#{myBundle.EditTipoDocumentoLabel_idDocumentos}" for="idDocumentos" />
-                            <h:outputText id="idDocumentos" value="#{tipoDocumentoController.selected.idDocumentos}" />
+                            <h:outputLabel value="#{myBundle.EditTipoDocumentoLabel_idDocumento}" for="idDocumento" />
+                            <h:outputText id="idDocumento" value="#{tipoDocumentoController.selected.idDocumento}" />
                         </pm:field>
                     </p:outputPanel>
                     <p:commandButton actionListener="#{tipoDocumentoController.save}" value="#{myBundle.Save}" update="#{mobilePageController.updatableWidgets(component,'display,:TipoDocumentoListPage:TipoDocumentoListForm:datalist,:growl')}" action="#{mobilePageController.navigateWithHistory('pm:TipoDocumentoListPage')}"/>

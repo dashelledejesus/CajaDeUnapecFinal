@@ -1,6 +1,6 @@
 package converter;
 
-import CajaDeUnapec.ModPago;
+import cajaUnapec.ModPago;
 import facade.ModPagoFacade;
 import controller.util.JsfUtil;
 import java.util.logging.Level;
