@@ -22,13 +22,36 @@
                         <p:inputText id="nombreCliente" value="#{clienteController.selected.nombreCliente}" title="#{myBundle.EditClienteTitle_nombreCliente}" size="40" maxlength="40"/>
 
                         <p:outputLabel value="#{myBundle.EditClienteLabel_tipoCliente}" for="tipoCliente" />
-                        <p:inputText id="tipoCliente" value="#{clienteController.selected.tipoCliente}" title="#{myBundle.EditClienteTitle_tipoCliente}" size="20" maxlength="20"/>
+                        <p:selectOneMenu id="tipoCliente" value="#{clienteController.selected.tipoCliente}">
+                        <f:selectItem itemLabel="Select One" itemValue=""/>
+                    <f:selectItem itemLabel="Estudiante" itemValue="Estudiante"/>
+                    <f:selectItem itemLabel="Empleado" itemValue="Empleado"/>
+                    <f:selectItem itemLabel="Profesor" itemValue="Profesor"/>
+                    
+                        </p:selectOneMenu>
 
                         <p:outputLabel value="#{myBundle.EditClienteLabel_carreraCliente}" for="carreraCliente" />
-                        <p:inputText id="carreraCliente" value="#{clienteController.selected.carreraCliente}" title="#{myBundle.EditClienteTitle_carreraCliente}" size="30" maxlength="30"/>
+                        
+                        <p:selectOneMenu id="carreraCliente" value="#{clienteController.selected.carreraCliente}">
+                        <f:selectItem itemLabel="Select One" itemValue=""/>
+                    <f:selectItem itemLabel="Administració" itemValue="Administració"/>
+                    <f:selectItem itemLabel="Marketing" itemValue="Marketing"/>
+                    <f:selectItem itemLabel="Publicidad" itemValue="Publicidad"/>
+                    <f:selectItem itemLabel="Comunicación Digital" itemValue="Comunicación Digital"/>
+                    <f:selectItem itemLabel="Ingenieria en Software" itemValue="Ingenieria en Software"/>
+                    <f:selectItem itemLabel="Ingenieria Electronica" itemValue="Ingenieria Electronica"/>
+                    <f:selectItem itemLabel="Derecho" itemValue="Derecho"/>
+                    
+                        </p:selectOneMenu>
 
                         <p:outputLabel value="#{myBundle.EditClienteLabel_estadoCliente}" for="estadoCliente" />
-                        <p:inputText id="estadoCliente" value="#{clienteController.selected.estadoCliente}" title="#{myBundle.EditClienteTitle_estadoCliente}" size="10" maxlength="10"/>
+                        <p:selectOneMenu id="estadoCliente" value="#{clienteController.selected.estadoCliente}">
+                        <f:selectItem itemLabel="Select One" itemValue=""/>
+                    <f:selectItem itemLabel="Activo" itemValue="Activo"/>
+                    <f:selectItem itemLabel="Inactivo" itemValue="Inactivo"/>
+                    <f:selectItem itemLabel="Suspendido" itemValue="Suspendido"/>
+                    
+                        </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{clienteController.save}" value="#{myBundle.Save}" update="display,:ClienteListForm:datalist,:ClienteListForm:ClienteDataTableContextMenu,:growl" oncomplete="handleSubmit(xhr,status,args,PF('ClienteEditDialog'));">
                         <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmEditMessage}" icon="ui-icon-alert"/>
