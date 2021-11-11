@@ -21,18 +21,18 @@
                         <p:outputLabel value="#{myBundle.CreateFormaDePagoLabel_descripcionFormaDePago}" for="descripcionFormaDePago" />
                         <p:selectOneMenu id="descripcionFormaDePago" value="#{formaDePagoController.selected.descripcionFormaDePago}">
                         <f:selectItem itemLabel="Select One" itemValue=""/>
-                    <f:selectItem itemLabel="Al contado" itemValue="Estudiante"/>
-                    <f:selectItem itemLabel="A credito" itemValue="Empleado"/>
-                    <f:selectItem itemLabel="Plataforma de pagos" itemValue="Profesor"/>
-  		    <f:selectItem itemLabel="T-Pago" itemValue="Profesor"/>
+                    <f:selectItem itemLabel="Al contado" itemValue="Al contado"/>
+                    <f:selectItem itemLabel="A credito" itemValue="A credito"/>
+                    <f:selectItem itemLabel="Plataforma de pagos" itemValue="Plataforma de pagos"/>
+  		    <f:selectItem itemLabel="T-Pago" itemValue="T-Pago"/>
                     
                         </p:selectOneMenu>
 
                         <p:outputLabel value="#{myBundle.CreateFormaDePagoLabel_estadoFormaDePago}" for="estadoFormaDePago" />
                         <p:selectOneMenu id="estadoFormaDePago" value="#{formaDePagoController.selected.estadoFormaDePago}">
                         <f:selectItem itemLabel="Select One" itemValue=""/>
-                    <f:selectItem itemLabel="Activo" itemValue="Estudiante"/>
-                    <f:selectItem itemLabel="Inactivo" itemValue="Empleado"/>
+                    <f:selectItem itemLabel="Activo" itemValue="Activo"/>
+                    <f:selectItem itemLabel="Inactivo" itemValue="Inactivo"/>
                     
                         </p:selectOneMenu>
                     </p:panelGrid>
