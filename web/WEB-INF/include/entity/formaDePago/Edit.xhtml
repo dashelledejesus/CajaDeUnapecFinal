@@ -19,6 +19,7 @@
                         <h:outputText id="idFormaDePago" value="#{formaDePagoController.selected.idFormaDePago}" />
 
                         <p:outputLabel value="#{myBundle.EditFormaDePagoLabel_descripcionFormaDePago}" for="descripcionFormaDePago" />
+                        <p:selectOneMenu id="descripcionFormaDePago" value="#{formaDePagoController.selected.descripcionFormaDePago}">
                         <f:selectItem itemLabel="Select One" itemValue=""/>
                     <f:selectItem itemLabel="Al contado" itemValue="Al contado"/>
                     <f:selectItem itemLabel="A credito" itemValue="A credito"/>
@@ -33,8 +34,8 @@
                         <f:selectItem itemLabel="Select One" itemValue=""/>
                     <f:selectItem itemLabel="Activo" itemValue="Activo"/>
                     <f:selectItem itemLabel="Inactivo" itemValue="Inactivo"/>
-                    
                         </p:selectOneMenu>
+                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{formaDePagoController.save}" value="#{myBundle.Save}" update="display,:FormaDePagoListForm:datalist,:FormaDePagoListForm:FormaDePagoDataTableContextMenu,:growl" oncomplete="handleSubmit(xhr,status,args,PF('FormaDePagoEditDialog'));">
                         <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmEditMessage}" icon="ui-icon-alert"/>
