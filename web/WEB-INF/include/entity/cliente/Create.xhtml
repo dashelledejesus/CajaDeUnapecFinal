@@ -22,13 +22,24 @@
                         <p:inputText id="nombreCliente" value="#{clienteController.selected.nombreCliente}" title="#{myBundle.CreateClienteTitle_nombreCliente}" size="40" maxlength="40"/>
 
                         <p:outputLabel value="#{myBundle.CreateClienteLabel_tipoCliente}" for="tipoCliente" />
-                        <p:inputText id="tipoCliente" value="#{clienteController.selected.tipoCliente}" title="#{myBundle.CreateClienteTitle_tipoCliente}" size="20" maxlength="20"/>
-
+                        <p:selectOneMenu id="tipoCliente" value="#{clienteController.selected.tipoCliente}">
+                        <f:selectItem itemLabel="Select One" itemValue=""/>
+                    <f:selectItem itemLabel="Estudiante" itemValue="Estudiante"/>
+                    <f:selectItem itemLabel="Empleado" itemValue="Empleado"/>
+                    <f:selectItem itemLabel="Profesor" itemValue="Profesor"/>
+                    
+                        </p:selectOneMenu>
                         <p:outputLabel value="#{myBundle.CreateClienteLabel_carreraCliente}" for="carreraCliente" />
                         <p:inputText id="carreraCliente" value="#{clienteController.selected.carreraCliente}" title="#{myBundle.CreateClienteTitle_carreraCliente}" size="30" maxlength="30"/>
 
                         <p:outputLabel value="#{myBundle.CreateClienteLabel_estadoCliente}" for="estadoCliente" />
-                        <p:inputText id="estadoCliente" value="#{clienteController.selected.estadoCliente}" title="#{myBundle.CreateClienteTitle_estadoCliente}" size="10" maxlength="10"/>
+                        <p:selectOneMenu id="estadoCliente" value="#{clienteController.selected.estadoCliente}">
+                        <f:selectItem itemLabel="Select One" itemValue=""/>
+                    <f:selectItem itemLabel="Activo" itemValue="Estudiante"/>
+                    <f:selectItem itemLabel="Inactivo" itemValue="Empleado"/>
+                    <f:selectItem itemLabel="Suspendido" itemValue="Profesor"/>
+                    
+                        </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{clienteController.saveNew}" value="#{myBundle.Save}" update="display,:ClienteListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('ClienteCreateDialog'));">
                         <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmCreateMessage}" icon="ui-icon-alert"/>
