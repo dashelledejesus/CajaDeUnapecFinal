@@ -20,9 +20,9 @@
                 <div class="form-group">
                     <label>Email: </label>
                     <input type="email" name="txtCorreo" placeholder="Example@gmail.com" class="form-control">
-                    
+                    <input type="sumit" name="action" value="ingresar">
                 </div>
-                 <input class="btn-danger btn-block"  type="sumit" name="action" value="ingresar"> 
+                  
                 
             </form> 
             
