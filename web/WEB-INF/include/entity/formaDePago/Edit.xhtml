@@ -10,8 +10,9 @@
         <p:dialog id="FormaDePagoEditDlg" widgetVar="FormaDePagoEditDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{myBundle.EditFormaDePagoTitle}" closeOnEscape="true">
 
             <h:form id="FormaDePagoEditForm">
-
                 <h:panelGroup id="display">
+
+                
                     <p:panelGrid  columns="2" columnClasses="column" rendered="#{formaDePagoController.selected != null}">
 
 
@@ -20,28 +21,25 @@
 
                         <p:outputLabel value="#{myBundle.EditFormaDePagoLabel_descripcionFormaDePago}" for="descripcionFormaDePago" />
                         <f:selectItem itemLabel="Select One" itemValue=""/>
+                        </p:panelGrid>
                     <f:selectItem itemLabel="Al contado" itemValue="Al contado"/>
                     <f:selectItem itemLabel="A credito" itemValue="A credito"/>
                     <f:selectItem itemLabel="Plataforma de pagos" itemValue="Plataforma de pagos"/>
   		    <f:selectItem itemLabel="T-Pago" itemValue="T-Pago"/>
-                    
-                        </p:selectOneMenu>
-
-
+                       </p:selectOneMenu> 
                         <p:outputLabel value="#{myBundle.EditFormaDePagoLabel_estadoFormaDePago}" for="estadoFormaDePago" />
                         <p:selectOneMenu id="estadoFormaDePago" value="#{formaDePagoController.selected.estadoFormaDePago}">
                         <f:selectItem itemLabel="Select One" itemValue=""/>
-                    <f:selectItem itemLabel="Activo" itemValue="Activo"/>
-                    <f:selectItem itemLabel="Inactivo" itemValue="Inactivo"/>
-                    
-                        </p:selectOneMenu>
-                    </p:panelGrid>
-                    <p:commandButton actionListener="#{formaDePagoController.save}" value="#{myBundle.Save}" update="display,:FormaDePagoListForm:datalist,:FormaDePagoListForm:FormaDePagoDataTableContextMenu,:growl" oncomplete="handleSubmit(xhr,status,args,PF('FormaDePagoEditDialog'));">
+                        <f:selectItem itemLabel="Activo" itemValue="Activo"/>
+                        <f:selectItem itemLabel="Inactivo" itemValue="Inactivo"/>
+                  </p:selectOneMenu>
+
+                        </p:panelGrid>
+                        <p:commandButton actionListener="#{formaDePagoController.save}" value="#{myBundle.Save}" update="display,:FormaDePagoListForm:datalist,:FormaDePagoListForm:FormaDePagoDataTableContextMenu,:growl" oncomplete="handleSubmit(xhr,status,args,PF('FormaDePagoEditDialog'));">
                         <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmEditMessage}" icon="ui-icon-alert"/>
                     </p:commandButton>
                     <p:commandButton value="#{myBundle.Cancel}" oncomplete="PF('FormaDePagoEditDialog').hide()" update="display" process="@this" immediate="true" resetValues="true"/>
                 </h:panelGroup>
-
             </h:form>
 
         </p:dialog>
