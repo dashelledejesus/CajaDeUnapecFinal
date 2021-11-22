@@ -84,6 +84,26 @@
 
 
             </p:dataTable>
+           <h3>Exporta los datos visibles en la tabla</h3> 
+                <h:commandLink> 
+                    <p:graphicImage name="../../../../images/Excel.jpg" /> 
+                    <p:dataExporter type="xls" target="datalist" fileName="Clientes" pageOnly="true"/> 
+                </h:commandLink> 
+ 
+                <h:commandLink> 
+                    <p:graphicImage name="../../../../images/pdf.jpg" /> 
+                    <p:dataExporter type="pdf" target="datalist" fileName="Clientes" pageOnly="true" /> 
+                </h:commandLink> 
+ 
+                <h:commandLink> 
+                    <p:graphicImage name="/demo/images/csv.png" /> 
+                    <p:dataExporter type="csv" target="tbl" fileName="Clientes" pageOnly="true" /> 
+                </h:commandLink> 
+ 
+                <h:commandLink> 
+                    <p:graphicImage name="/demo/images/xml.png" /> 
+                    <p:dataExporter type="xml" target="datalist" fileName="Clientes" pageOnly="true" /> 
+                </h:commandLink>
 
             <p:commandButton id="createButton"                             icon="ui-icon-plus"   value="#{myBundle.Create}" actionListener="#{clienteController.prepareCreate}" update=":ClienteCreateForm" oncomplete="PF('ClienteCreateDialog').show()"/>
             <p:commandButton id="viewButton"   style="visibility: hidden;" icon="ui-icon-search" value="#{myBundle.View}" update=":ClienteViewForm" oncomplete="PF('ClienteViewDialog').show()" disabled="#{empty clienteController.selected}"/>
