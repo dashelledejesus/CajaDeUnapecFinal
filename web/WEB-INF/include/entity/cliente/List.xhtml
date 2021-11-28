@@ -86,22 +86,22 @@
             </p:dataTable>
            <h3>Exporta los datos visibles en la tabla</h3> 
                 <h:commandLink> 
-                    <p:graphicImage name="../../../../images/Excel.jpg" /> 
+                    <p:graphicImage alt="Exportar a Excel"/> 
                     <p:dataExporter type="xls" target="datalist" fileName="Clientes" pageOnly="true"/> 
                 </h:commandLink> 
  
                 <h:commandLink> 
-                    <p:graphicImage name="../../../../images/pdf.jpg" /> 
+                    <p:graphicImage alt="Exportar a PDF" /> 
                     <p:dataExporter type="pdf" target="datalist" fileName="Clientes" pageOnly="true" /> 
                 </h:commandLink> 
  
                 <h:commandLink> 
-                    <p:graphicImage name="/demo/images/csv.png" /> 
-                    <p:dataExporter type="csv" target="tbl" fileName="Clientes" pageOnly="true" /> 
+                    <p:graphicImage alt="Exportar a CSV" /> 
+                    <p:dataExporter type="csv" target="datalist" fileName="Clientes" pageOnly="true" /> 
                 </h:commandLink> 
  
                 <h:commandLink> 
-                    <p:graphicImage name="/demo/images/xml.png" /> 
+                    <p:graphicImage alt="Exportar a XML" /> 
                     <p:dataExporter type="xml" target="datalist" fileName="Clientes" pageOnly="true" /> 
                 </h:commandLink>
 
