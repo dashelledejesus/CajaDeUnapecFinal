@@ -94,6 +94,26 @@
 
 
             </p:dataTable>
+            <h3>Exporta los datos visibles en la tabla</h3> 
+                <h:commandLink> 
+                    <p:graphicImage alt="Exportar a Excel" /> 
+                    <p:dataExporter type="xls" target="datalist" fileName="Empleados" pageOnly="true"/> 
+                </h:commandLink> 
+ 
+                <h:commandLink> 
+                    <p:graphicImage alt="Exportar a PDF" /> 
+                    <p:dataExporter type="pdf" target="datalist" fileName="Empleados" pageOnly="true" /> 
+                </h:commandLink> 
+ 
+                <h:commandLink> 
+                    <p:graphicImage alt="Exportar a CSV" /> 
+                    <p:dataExporter type="csv" target="datalist" fileName="Empeleados" pageOnly="true" /> 
+                </h:commandLink> 
+ 
+                <h:commandLink> 
+                    <p:graphicImage alt="Exportar a XML" /> 
+                    <p:dataExporter type="xml" target="datalist" fileName="Empleados" pageOnly="true" /> 
+                </h:commandLink>
 
             <p:commandButton id="createButton"                             icon="ui-icon-plus"   value="#{myBundle.Create}" actionListener="#{empleadoController.prepareCreate}" update=":EmpleadoCreateForm" oncomplete="PF('EmpleadoCreateDialog').show()"/>
             <p:commandButton id="viewButton"   style="visibility: hidden;" icon="ui-icon-search" value="#{myBundle.View}" update=":EmpleadoViewForm" oncomplete="PF('EmpleadoViewDialog').show()" disabled="#{empty empleadoController.selected}"/>

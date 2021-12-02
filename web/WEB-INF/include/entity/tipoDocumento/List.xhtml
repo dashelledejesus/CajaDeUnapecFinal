@@ -68,6 +68,26 @@
 
 
             </p:dataTable>
+            <h3>Exporta los datos visibles en la tabla</h3> 
+                <h:commandLink> 
+                    <p:graphicImage alt="Exportar a Excel" /> 
+                    <p:dataExporter type="xls" target="datalist" fileName="Tipo de Doc" pageOnly="true"/> 
+                </h:commandLink> 
+ 
+                <h:commandLink> 
+                    <p:graphicImage alt="Exportar a PDF" /> 
+                    <p:dataExporter type="pdf" target="datalist" fileName="Tipo de Doc" pageOnly="true" /> 
+                </h:commandLink> 
+ 
+                <h:commandLink> 
+                    <p:graphicImage alt="Exportar a CSV" /> 
+                    <p:dataExporter type="csv" target="datalist" fileName="Tipo de Doc" pageOnly="true" /> 
+                </h:commandLink> 
+ 
+                <h:commandLink> 
+                    <p:graphicImage alt="Exportar a XML" /> 
+                    <p:dataExporter type="xml" target="datalist" fileName="Tipo de Doc" pageOnly="true" /> 
+                </h:commandLink>
 
             <p:commandButton id="createButton"                             icon="ui-icon-plus"   value="#{myBundle.Create}" actionListener="#{tipoDocumentoController.prepareCreate}" update=":TipoDocumentoCreateForm" oncomplete="PF('TipoDocumentoCreateDialog').show()"/>
             <p:commandButton id="viewButton"   style="visibility: hidden;" icon="ui-icon-search" value="#{myBundle.View}" update=":TipoDocumentoViewForm" oncomplete="PF('TipoDocumentoViewDialog').show()" disabled="#{empty tipoDocumentoController.selected}"/>
