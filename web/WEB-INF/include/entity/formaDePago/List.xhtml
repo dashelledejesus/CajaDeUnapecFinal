@@ -70,22 +70,22 @@
             </p:dataTable>
             <h3>Exporta los datos visibles en la tabla</h3> 
                 <h:commandLink> 
-                    <p:graphicImage alt="Exportar a Excel" /> 
+                    <p:graphicImage name="../../../../images/Excel.jpg" /> 
                     <p:dataExporter type="xls" target="datalist" fileName="Forma de Pago" pageOnly="true"/> 
                 </h:commandLink> 
  
                 <h:commandLink> 
-                    <p:graphicImage alt="Exportar a PDF" /> 
+                    <p:graphicImage name="../../../../images/pdf.jpg" /> 
                     <p:dataExporter type="pdf" target="datalist" fileName="Forma de Pago" pageOnly="true" /> 
                 </h:commandLink> 
  
                 <h:commandLink> 
-                    <p:graphicImage alt="Exportar a CVS" /> 
-                    <p:dataExporter type="csv" target="datalist" fileName="Forma de Pago" pageOnly="true" /> 
+                    <p:graphicImage name="/demo/images/csv.png" /> 
+                    <p:dataExporter type="csv" target="tbl" fileName="Forma de Pago" pageOnly="true" /> 
                 </h:commandLink> 
  
                 <h:commandLink> 
-                    <p:graphicImage alt="Exportar a XML" /> 
+                    <p:graphicImage name="/demo/images/xml.png" /> 
                     <p:dataExporter type="xml" target="datalist" fileName="Forma de Pago" pageOnly="true" /> 
                 </h:commandLink>
 
