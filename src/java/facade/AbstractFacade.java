@@ -63,7 +63,7 @@ public abstract class AbstractFacade<T> {
         javax.persistence.criteria.Root<T> rt = cq.from(entityClass);
         cq.select(getEntityManager().getCriteriaBuilder().count(rt));
         javax.persistence.Query q = getEntityManager().createQuery(cq);
-        return ((Long) q.getSingleResult()).intValue();
+        return ((Number) q.getSingleResult()).intValue();
     }
 
     public List<T> findRange(int first, int pageSize, String sortField, String sortOrder, Map<String, Object> filters) {
@@ -129,7 +129,7 @@ public abstract class AbstractFacade<T> {
             cq.where(predicates.toArray(new javax.persistence.criteria.Predicate[]{}));
         }
         javax.persistence.Query q = getEntityManager().createQuery(cq);
-        return ((Long) q.getSingleResult()).intValue();
+        return ((Number) q.getSingleResult()).intValue();
     }
 
     private List<Predicate> getPredicates(CriteriaBuilder cb, Root<T> entityRoot, Map<String, Object> filters) {
@@ -157,9 +157,9 @@ public abstract class AbstractFacade<T> {
                 } else {
                     javax.persistence.criteria.Expression<?> filterExpression = getCastExpression((String) filters.get(s), fieldTypeName, cb);
                     if (filterExpression != null) {
-                        predicates.add(cb.equal((javax.persistence.criteria.Expression<?>) pkFieldPath, filterExpression));
+                        predicates.add(cb.equal(pkFieldPath, filterExpression));
                     } else {
-                        predicates.add(cb.equal((javax.persistence.criteria.Expression<?>) pkFieldPath, filters.get(s)));
+                        predicates.add(cb.equal(pkFieldPath, filters.get(s)));
                     }
                 }
             }
